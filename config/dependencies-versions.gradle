@@ -1,0 +1,200 @@
+ext {
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    //                                            BUILD                                           //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    kotlin_version = '1.2.41'
+    build_tools_version = "27.0.3"
+    min_sdk_version = 18
+    target_sdk_version = 27
+
+    version_Name = "3.8.0"
+    version_Code = 6453
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // DEPENDENCIES                                                                                    //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    supportVersion          =   '27.1.0'
+    playServiceVersion      =   '12.0.0'
+    rxJavaVersion           =   'latest.release'
+    rxAndroidVersion        =   'latest.release'
+    retrofitVersion         =   'latest.release'
+    okHttpLoggingVersion    =   'latest.release'
+    junitVersion            =   '4.12'
+    mockitoVersion          =   '2.0.54-beta'
+    androidArchSdkVersion   =   "1.0.0"
+    glideSdkVersion         =   "4.1.1"
+    dagger2SdkVersion       =   "2.11"
+    espressoSdkVersion      =   "3.0.1"
+    canarySdkVersion        =   "1.5.1"
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // TESTING                                                                                    //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    junit_version = '4.12'
+    truth_version = '0.36'
+    mockito_version = '2.10.0'
+    robolectric_version = '3.4.2'
+
+
+    //InstantApp
+    instantAppLibs          =   'com.google.android.instantapps:instantapps:1.1.0'
+
+    //Kotlin
+    kotlinLib               =   "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}"
+
+    //Anko
+    ankoCommons             =   "org.jetbrains.anko:anko-commons:0.10.4"
+
+
+    // android support
+    supportAppCompat        =   "com.android.support:appcompat-v7:${supportVersion}"
+    supportAppV4            =   "com.android.support:support-v4:${supportVersion}"
+    supportCardView         =   "com.android.support:cardview-v7:${supportVersion}"
+    supportDesign           =   "com.android.support:design:${supportVersion}"
+    supportRecyclerView     =   "com.android.support:recyclerview-v7:${supportVersion}"
+    supportAnnotation       =   "com.android.support:support-annotations:${supportVersion}"
+    supportMultidex         =   'com.android.support:multidex:1.0.2'
+    constraintLayout        =   'com.android.support.constraint:constraint-layout:1.0.2'
+
+    //mvvm( Lifecycles, LiveData, and ViewModel, Room)
+    lifecycleRuntime        =   "android.arch.lifecycle:runtime:${androidArchSdkVersion}"
+    lifecycleExtensions     =   "android.arch.lifecycle:extensions:${androidArchSdkVersion}"
+    lifecycleCompiler       =   "android.arch.lifecycle:compiler:${androidArchSdkVersion}"
+    roomRuntime             =   "android.arch.persistence.room:runtime:${androidArchSdkVersion}"
+    roomCompiler            =   "android.arch.persistence.room:compiler:${androidArchSdkVersion}"
+    roomTesting             =   "android.arch.persistence.room:testing:${androidArchSdkVersion}"
+    roomRxjava2             =   "android.arch.persistence.room:rxjava2:${androidArchSdkVersion}"
+
+    //RxJava
+    rxJava2                 =   'io.reactivex.rxjava2:rxjava:2.1.12'
+    rxAndroid2              =   'io.reactivex.rxjava2:rxandroid:2.0.2'
+    rxGPS                   =   'com.github.florent37:rxgps:1.0.1'
+
+    //rxLifecycle
+    rxLifecycleComponents   =   'com.trello.rxlifecycle2:rxlifecycle-components:2.2.1'
+    rxLifecycle             =    'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+
+    //Retrofit and OkHttp
+    retrofit                =   "com.squareup.retrofit2:retrofit:${retrofitVersion}"
+    retrofitGsonConverter   =   "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
+    retrofitRxJavaAdapter   =   "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
+    okHttpLogging           =   'com.github.ihsanbal:LoggingInterceptor:2.0.5'
+    okHttp                  =   'com.squareup.okhttp3:okhttp:3.10.0'
+    okHttpLog               =   'com.squareup.okhttp3:logging-interceptor:3.10.0'
+
+
+    // Google Play Service
+    gpsAppIndexing          =   "com.google.firebase:firebase-appindexing:${playServiceVersion}"
+    gpsLocation             =   "com.google.android.gms:play-services-location:${playServiceVersion}"
+    gpsMaps                 =   "com.google.android.gms:play-services-maps:${playServiceVersion}"
+    gpsAnalytics            =   "com.google.android.gms:play-services-analytics:${playServiceVersion}"
+    gpsAuth                 =   "com.google.android.gms:play-services-auth:${playServiceVersion}"
+    gpsVision               =   "com.google.android.gms:play-services-vision:${playServiceVersion}"
+    gpsGCM                  =   "com.google.android.gms:play-services-gcm:${playServiceVersion}"
+    firebaseJobDispatcher   =   'com.firebase:firebase-jobdispatcher:0.8.5'
+
+
+    //Dagger
+    dagger2                  = "com.google.dagger:dagger:${dagger2SdkVersion}"
+    dagger2Compiler          = "com.google.dagger:dagger-compiler:${dagger2SdkVersion}"
+    dagger2Android           = "com.google.dagger:dagger-android:${dagger2SdkVersion}"
+    dagger2AndroidSupport    = "com.google.dagger:dagger-android-support:${dagger2SdkVersion}"
+    dagger2AndroidProcessor  = "com.google.dagger:dagger-android-processor:${dagger2SdkVersion}"
+    javaxAnnotation          = 'org.glassfish:javax.annotation:10.0-b28'
+
+    //Other Lib
+    facebookSDK             =   'com.facebook.android:facebook-android-sdk:4.31.0'
+    jsoup                   =   'org.jsoup:jsoup:1.9.2'
+    eventbus                =   'org.greenrobot:eventbus:3.1.1'
+    picasso                 =   'com.squareup.picasso:picasso:2.5.2'
+    glide                   =   'com.github.bumptech.glide:glide:3.7.0'
+    glideOkhttp             =   'com.github.bumptech.glide:okhttp3-integration:1.4.0@aar'
+    glideTransform          =   'jp.wasabeef:glide-transformations:1.3.1'
+    rvAnimator              =   'jp.wasabeef:recyclerview-animators:2.2.4'
+    bottomSheetCore         =   'com.flipboard:bottomsheet-core:1.5.3'
+    bottomSheetCommons      =   'com.flipboard:bottomsheet-commons:1.5.3'
+    brvah                   =   'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.19'
+    zxingCore               =   'com.google.zxing:core:3.3.0'
+    zxingAndroid            =   'com.journeyapps:zxing-android-embedded:3.3.0'
+    xLog                    =   'com.elvishew:xlog:1.4.0'
+    alerter                 =   'com.tapadoo.android:alerter:2.0.0'
+    appbarSpring            =   'com.github.todou:appbarspring:1.0.3'
+    swipeLayout             =   'com.daimajia.swipelayout:library:1.2.0@aar'
+    crashlyticsSDK          =   'com.crashlytics.sdk.android:crashlytics:2.7.1@aar'
+    javaxAnnotation         =   'org.glassfish:javax.annotation:10.0-b28'
+    mdCrossFader            =   "com.mikepenz:crossfader:1.5.0@aar"
+    materialDrawer          =   'com.mikepenz:materialdrawer:5.8.2@aar'
+    nineoldandroids         =   'com.nineoldandroids:library:2.4.0'
+    easingLib               =   'com.daimajia.easing:library:1.0.1@aar'
+    androidAnimLib          =   'com.daimajia.androidanimations:library:1.1.3@aar'
+    circularReveal          =   'com.github.ozodrukh:CircularReveal:2.0.1@aar'
+    photoView               =   'com.github.chrisbanes:PhotoView:1.3.1'
+    materialAbout           =   'com.github.daniel-stoneuk:material-about-library:2.2.5'
+    snacky                  =   'com.github.matecode:Snacky:1.0.2'
+    aviLib                  =   'com.wang.avi:library:2.1.3'
+    paperDb                 =   'io.paperdb:paperdb:2.6'
+    tapTargetPrompt         =   'uk.co.samuelwall:material-tap-target-prompt:2.7.0'
+    materialTypeface        =   'com.mikepenz:community-material-typeface:2.0.46.1@aar'
+    kryoLib                 =   'com.esotericsoftware:kryo:4.0.2'
+    objenesisLib            =   'org.objenesis:objenesis:2.6'
+
+    oneSignalSdk            =   'com.onesignal:OneSignal:[3.8.4, 3.99.99]'
+
+
+    // UnitTesting //
+    robolectricShadows      =   'org.robolectric:shadows-support-v4:3.0'
+    hamcrestCore            =   'org.hamcrest:hamcrest-core:1.3'
+    assertjCore             =   'org.assertj:assertj-core:3.6.2'
+    mockwebserver           =   "com.squareup.okhttp3:mockwebserver:3.4.1"
+    junit                   =   "junit:junit:${junitVersion}"
+    mockito                 =   "org.mockito:mockito-core:${mockitoVersion}"
+    powermockCore           =   'org.powermock:powermock-core:1.6.1'
+    powermockModule         =   'org.powermock:powermock-module-junit4:1.6.1'
+    powermockMockito        =   'org.powermock:powermock-api-mockito:1.6.1'
+    assertjCore             =   'org.assertj:assertj-core:3.6.2'
+    robolectric             =   'org.robolectric:robolectric:3.2.2'
+    espressoCore            =   "com.android.support.test.espresso:espresso-core:${espressoSdkVersion}"
+    espressoContrib         =   "com.android.support.test.espresso:espresso-contrib:${espressoSdkVersion}"
+    espressoIntents         =   "com.android.support.test.espresso:espresso-intents:${espressoSdkVersion}"
+    espressoIdiling         =   "com.android.support.test.espresso:espresso-idling-resource:${espressoSdkVersion}"
+    espressoConcurrent      =   "com.android.support.test.espresso.idling:idling-concurrent:${espressoSdkVersion}"
+    timber                  =   "com.jakewharton.timber:timber:4.5.1"
+    canaryDebug             =   "com.squareup.leakcanary:leakcanary-android:${canarySdkVersion}"
+    canaryRelease           =   "com.squareup.leakcanary:leakcanary-android-no-op:${canarySdkVersion}"
+    uiautomator             =   "com.android.support.test.uiautomator:uiautomator-v18:2.1.1"
+
+
+    packagingOption =  {
+        exclude 'lib/armeabi-v7a/libblasV8.so'
+        exclude 'lib/armeabi-v7a/librsjni.so'
+        exclude 'lib/armeabi-v7a/libRSSupport.so'
+        exclude 'lib/mips/libblasV8.so'
+        exclude 'lib/mips/librsjni.so'
+        exclude 'lib/mips/libRSSupport.so'
+        exclude 'lib/x86/libblasV8.so'
+        exclude 'lib/x86/librsjni.so'
+        exclude 'lib/x86/libRSSupport.so'
+        exclude 'META-INF/DEPENDENCIES.txt'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license.txt'
+        exclude 'META-INF/dependencies.txt'
+        exclude 'META-INF/LGPL2.1'
+        exclude 'ASL-2.0.txt'
+        exclude 'META-INF/ASL-2.0.txt'
+        exclude 'META-INF/LGPL-3.0.txt'
+        exclude 'META-INF/services/javax.annotation.processing.Processors'
+
+        pickFirst 'protobuf.meta'
+    }
+}

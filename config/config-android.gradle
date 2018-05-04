@@ -1,0 +1,82 @@
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// COMMON ANDROID CONFIG SETTINGS                                                                 //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+android {
+    compileSdkVersion target_sdk_version
+    buildToolsVersion build_tools_version
+
+    defaultConfig {
+        minSdkVersion min_sdk_version
+        targetSdkVersion target_sdk_version
+        versionCode version_Code
+        versionName version_Name
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled true
+    }
+
+    lintOptions {
+        warningsAsErrors false
+        abortOnError true // Fail early.
+        ignoreWarnings true
+    }
+
+    // Show all test output in the command line!
+    testOptions.unitTests.all {
+        testLogging {
+            events 'passed', 'skipped', 'failed', 'standardOut', 'standardError'
+            exceptionFormat 'full'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    // used by Room, to test migrations
+    sourceSets {
+        androidTest.assets.srcDirs +=
+                files("$projectDir/schemas".toString())
+    }
+
+    configurations.all {
+        resolutionStrategy.force 'org.ow2.asm:asm:5.0.4'
+        resolutionStrategy.force 'org.objenesis:objenesis:2.6'
+        //Force Android Support Version
+        resolutionStrategy.force supportAnnotation
+        resolutionStrategy.force supportAppCompat
+        resolutionStrategy.force supportAppV4
+        resolutionStrategy.force supportCardView
+        resolutionStrategy.force supportDesign
+        resolutionStrategy.force supportRecyclerView
+
+        //Force Google Service / Firebase Version
+        resolutionStrategy.force gpsMaps
+        resolutionStrategy.force gpsAnalytics
+        resolutionStrategy.force gpsLocation
+        resolutionStrategy.force gpsAuth
+        resolutionStrategy.force gpsAppIndexing
+        resolutionStrategy.force gpsGCM
+        resolutionStrategy.force 'com.google.firebase:firebase-core:12.0.0'
+    }
+
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// COMMON FLAGS                                                                                   //
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+androidExtensions {
+    experimental = true
+}

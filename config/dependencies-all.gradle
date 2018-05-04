@@ -1,0 +1,164 @@
+def Group(Closure closure) {
+    closure.delegate = dependencies
+    return closure
+}
+
+ext {
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // CORE                                                                                       //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    core = Group {
+
+        // Libraries //
+        implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+        // Constraint Layout //
+        implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+        implementation kotlinLib
+        implementation ankoCommons
+
+        // Dagger //
+        implementation dagger2
+        kapt dagger2Compiler
+        compileOnly javaxAnnotation
+
+        // android support Dependencies
+        api supportAppCompat
+        api supportAppV4
+        api supportCardView
+        api supportDesign
+        api supportRecyclerView
+        api constraintLayout
+        api supportMultidex
+
+        // Google Play Service
+        api gpsAppIndexing
+        api gpsMaps
+        api gpsLocation
+        api gpsAnalytics
+        api gpsAuth
+        api firebaseJobDispatcher
+
+        api rxLifecycle
+        api rxLifecycleComponents
+
+        // Fabric crashlytics
+        implementation(crashlyticsSDK) {
+            transitive = true
+            exclude module: 'gson'
+        }
+
+        compileOnly 'org.glassfish:javax.annotation:10.0-b28'
+//        application project(":app")
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // NETWORK                                                                                    //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    network = Group {
+
+        //FacebookSDK
+        api facebookSDK
+
+        api rxJava2
+        api rxAndroid2
+        api retrofit
+        api retrofitGsonConverter
+        api retrofitRxJavaAdapter
+        api okHttp
+        api okHttpLog
+        api rxGPS
+
+        api(okHttpLogging) {
+            exclude group: 'org.json', module: 'json'
+        }
+
+    }
+
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // VIEW                                                                                       //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    view = Group {
+        // Other Dependencies
+        api tapTargetPrompt
+        api picasso
+        api glide
+        api glideOkhttp
+        api glideTransform
+        api rvAnimator
+        api swipeLayout
+        api eventbus
+        api photoView
+        api zxingCore
+        api zxingAndroid
+        api appbarSpring
+        api brvah
+        api jsoup
+        api xLog
+        api paperDb
+        api javaxAnnotation
+        api nineoldandroids
+        api easingLib
+        api androidAnimLib
+        api snacky
+        api aviLib
+        api materialAbout
+        api materialTypeface
+        api mdCrossFader
+        api(materialDrawer) {
+            transitive = true
+        }
+        api 'id.paniclabs.android:matchips:1.0.1'
+
+
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+    // TESTING                                                                                    //
+    ////////////////////////////////////////////////////////////////////////////////////////////////
+
+    testing = Group {
+
+        //unit test
+        implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+        testImplementation junit
+        androidTestImplementation 'com.android.support.test:runner:1.0.1'
+        androidTestImplementation 'com.android.support.test:rules:1.0.1'
+
+        //Mockito Kotlin Test
+        testImplementation "org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version"
+        testImplementation 'org.mockito:mockito-core:2.10.0'
+        testImplementation 'org.assertj:assertj-core:3.8.0'
+        testImplementation "com.nhaarman:mockito-kotlin-kt1.1:1.5.0"
+
+
+        //Espresso Unit Test
+        androidTestImplementation(espressoCore, {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        androidTestImplementation(espressoContrib, {
+            exclude group: 'com.android.support', module: 'appcompat'
+            exclude module: 'support-annotations'
+            exclude module: 'support-v4'
+            exclude module: 'support-v13'
+            exclude module: 'recyclerview-v7'
+            exclude module: 'appcompat-v7'
+        })
+        androidTestImplementation (uiautomator)
+        androidTestImplementation (espressoIntents)
+        implementation (espressoIdiling)
+        implementation (espressoConcurrent)
+        implementation ('com.jakewharton.espresso:okhttp3-idling-resource:1.0.0') {
+            exclude module: 'support-annotations'
+        }
+
+        androidTestImplementation 'junit:junit:4.12'
+    }
+}
