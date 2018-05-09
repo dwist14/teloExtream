@@ -47,10 +47,10 @@ ext {
         api rxLifecycleComponents
 
         // Fabric crashlytics
-        implementation(crashlyticsSDK) {
-            transitive = true
-            exclude module: 'gson'
-        }
+//        implementation(crashlyticsSDK) {
+//            transitive = true
+//            exclude module: 'gson'
+//        }
 
         compileOnly 'org.glassfish:javax.annotation:10.0-b28'
 //        application project(":app")

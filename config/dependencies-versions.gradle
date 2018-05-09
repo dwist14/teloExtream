@@ -9,8 +9,8 @@ ext {
     min_sdk_version = 18
     target_sdk_version = 27
 
-    version_Name = "3.8.0"
-    version_Code = 6453
+    version_Name = "1.0"
+    version_Code = 1
 
     ////////////////////////////////////////////////////////////////////////////////////////////////
     // DEPENDENCIES                                                                                    //
